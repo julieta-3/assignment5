@@ -1,0 +1,7 @@
+venv/
+*.db
+*.log
+__pycache__/
+.DS_Store
+google_oauth_client_secret.json
+static/images/photos/
