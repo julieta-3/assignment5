@@ -110,6 +110,17 @@ class PhotoData(Base):
 # Table name should be 'user'
 # In the as_dict method, skip the password field/attribute when returning the dict.
 
+class User(Base):
+    __tablename__ = 'user'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    password = Column(String)
+    user_type = Column(String)
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name)
+            for c in self.__table__.columns if c.name != 'password'}
+
 
 # Class that represents in-memory representation of a photo
 class Photo():
